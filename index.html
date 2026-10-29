@@ -1432,12 +1432,16 @@
   }
   .meta-value{overflow-wrap:normal;word-break:normal;font-size:clamp(.86rem,1.5vw,1rem);}
 
-  /* ===== RTL: angka di samping judul; tanpa angka di Karya Inovasi ===== */
-  .refleksi-card.rtl-item{flex-direction:column;gap:12px;}
-  .rtl-head{display:flex;align-items:center;gap:14px;}
-  .rtl-head h3{font-size:1.08rem;font-weight:800;line-height:1.4;min-width:0;}
-  .rtl-item > p{color:var(--muted);text-align:justify;}
-  @media (max-width:560px){.rtl-item > p{text-align:left;}.rtl-head .refleksi-num{width:40px;height:40px;}}
+  /* ===== RTL: angka di kiri; judul dan penjelasan sejajar di kanan ===== */
+  .refleksi-card.rtl-item{display:flex;flex-direction:row;align-items:flex-start;gap:16px;}
+  .rtl-item .refleksi-body{flex:1;}
+  .rtl-item .refleksi-body h3{min-height:46px;display:flex;align-items:center;}
+  .rtl-item .refleksi-body p{margin-top:4px;}
+  @media (max-width:560px){
+    .refleksi-card.rtl-item{display:flex;flex-direction:row;gap:12px;}
+    .rtl-item .refleksi-num{width:38px;height:38px;font-size:.95rem;}
+    .rtl-item .refleksi-body h3{min-height:38px;}
+  }
   ol.karya-list li::before{content:none !important;display:none !important;}
 </style>
 </head>
@@ -1682,27 +1686,27 @@
       <p class="reveal" style="font-weight:600;margin:-4px 0 0;">Apa saja tiga hal penting yang akan Anda lakukan ketika memulai karier sebagai guru?</p>
 
       <article class="refleksi-card karya-card refleksi-q rtl-item reveal">
-        <div class="rtl-head">
-          <div class="refleksi-num">1</div>
+        <div class="refleksi-num">1</div>
+        <div class="refleksi-body">
           <h3>Merancang dan melaksanakan pembelajaran yang berpihak pada murid.</h3>
+          <p>Saya akan mengenali karakteristik, kemampuan awal, minat, dan kebutuhan murid sebagai dasar dalam menyusun perencanaan pembelajaran. Saya akan menerapkan pembelajaran yang aktif, kreatif, menyenangkan, dan berdiferensiasi agar setiap murid memperoleh kesempatan untuk berkembang sesuai potensinya.</p>
         </div>
-        <p>Saya akan mengenali karakteristik, kemampuan awal, minat, dan kebutuhan murid sebagai dasar dalam menyusun perencanaan pembelajaran. Saya akan menerapkan pembelajaran yang aktif, kreatif, menyenangkan, dan berdiferensiasi agar setiap murid memperoleh kesempatan untuk berkembang sesuai potensinya.</p>
       </article>
 
       <article class="refleksi-card karya-card refleksi-q rtl-item reveal">
-        <div class="rtl-head">
-          <div class="refleksi-num">2</div>
+        <div class="refleksi-num">2</div>
+        <div class="refleksi-body">
           <h3>Mengembangkan kompetensi dan meningkatkan profesionalisme secara berkelanjutan.</h3>
+          <p>Saya akan terus belajar melalui pelatihan, komunitas belajar, diskusi dengan rekan sejawat, serta memanfaatkan teknologi dalam pembelajaran. Saya juga akan melakukan refleksi dan evaluasi secara rutin untuk mengetahui kekurangan dan menentukan langkah perbaikan dalam proses pembelajaran.</p>
         </div>
-        <p>Saya akan terus belajar melalui pelatihan, komunitas belajar, diskusi dengan rekan sejawat, serta memanfaatkan teknologi dalam pembelajaran. Saya juga akan melakukan refleksi dan evaluasi secara rutin untuk mengetahui kekurangan dan menentukan langkah perbaikan dalam proses pembelajaran.</p>
       </article>
 
       <article class="refleksi-card karya-card refleksi-q rtl-item reveal">
-        <div class="rtl-head">
-          <div class="refleksi-num">3</div>
+        <div class="refleksi-num">3</div>
+        <div class="refleksi-body">
           <h3>Menjadi teladan dan membangun lingkungan belajar yang positif.</h3>
+          <p>Saya akan menunjukkan sikap disiplin, jujur, bertanggung jawab, adil, dan peduli kepada murid. Saya akan menciptakan suasana kelas yang aman, nyaman, inklusif, serta menghargai perbedaan. Selain itu, saya akan menjalin kerja sama yang baik dengan orang tua, rekan guru, dan seluruh warga sekolah untuk mendukung perkembangan karakter dan kompetensi murid.</p>
         </div>
-        <p>Saya akan menunjukkan sikap disiplin, jujur, bertanggung jawab, adil, dan peduli kepada murid. Saya akan menciptakan suasana kelas yang aman, nyaman, inklusif, serta menghargai perbedaan. Selain itu, saya akan menjalin kerja sama yang baik dengan orang tua, rekan guru, dan seluruh warga sekolah untuk mendukung perkembangan karakter dan kompetensi murid.</p>
       </article>
     </div>
   </section>
