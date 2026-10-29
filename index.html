@@ -1375,6 +1375,11 @@
   .doc-item figcaption{padding:8px 10px;font-size:.75rem;font-weight:600;line-height:1.3;}
   @media (max-width:700px){.doc-grid{gap:8px;}.doc-item figcaption{font-size:.65rem;padding:6px;}.karya-box p{text-align:left;}}
 
+  .refleksi-q .refleksi-body h3{font-size:1.08rem;}
+  .refleksi-q .refleksi-body p{margin-top:12px;}
+  .refleksi-single .refleksi-body p{margin-top:0;font-size:1.05rem;line-height:1.9;}
+  @media (max-width:560px){.refleksi-single .refleksi-body p{text-align:left;}}
+
   /* ===== DETAIL: deskripsi, preview PDF, link artefak ===== */
   .detail-block{margin-top:28px;}
   .block-title{display:flex;align-items:center;gap:10px;font-size:1.05rem;font-weight:800;letter-spacing:-.01em;margin-bottom:12px;}
@@ -1426,6 +1431,14 @@
     .profile-about p{text-align:left;}
   }
   .meta-value{overflow-wrap:normal;word-break:normal;font-size:clamp(.86rem,1.5vw,1rem);}
+
+  /* ===== RTL: angka di samping judul; tanpa angka di Karya Inovasi ===== */
+  .refleksi-card.rtl-item{flex-direction:column;gap:12px;}
+  .rtl-head{display:flex;align-items:center;gap:14px;}
+  .rtl-head h3{font-size:1.08rem;font-weight:800;line-height:1.4;min-width:0;}
+  .rtl-item > p{color:var(--muted);text-align:justify;}
+  @media (max-width:560px){.rtl-item > p{text-align:left;}.rtl-head .refleksi-num{width:40px;height:40px;}}
+  ol.karya-list li::before{content:none !important;display:none !important;}
 </style>
 </head>
 <body>
@@ -1444,7 +1457,7 @@
     <button data-target="semester1">Semester 1</button>
     <button data-target="semester2">Semester 2</button>
     <button data-target="karya">Karya Inovasi</button>
-    <button data-target="refleksi">Refleksi</button>
+    <button data-target="refleksi">Refleksi PPG</button>
   </nav>
 </header>
 
@@ -1534,7 +1547,7 @@
       <div class="vm-content-col">
         <h3 class="vm-title">Visi pribadi untuk pendidikan di Indonesia</h3>
         <span class="vm-quote">&ldquo;</span>
-        <p class="vm-visi-text">Mewujudkan pendidikan Indonesia yang berkualitas, inklusif, dan mampu mengembangkan potensi murid agar menjadi pribadi yang berkarakter, mandiri, kreatif, dan mampu menghadapi tantangan di masa depan.</p>
+        <p class="vm-visi-text">Saya ingin pendidikan Indonesia menjadi tempat setiap murid belajar sesuai kebutuhannya agar mampu berpikir kritis dan memecahkan masalah dalam kehidupan sehari-hari.</p>
       </div>
     </div>
 
@@ -1543,9 +1556,9 @@
         <span class="vm-tag">Visi 02</span>
       </div>
       <div class="vm-content-col">
-        <h3 class="vm-title">Visi pribadi sebagai calon guru</h3>
+        <h3 class="vm-title">Visi pribadi untuk calon guru</h3>
         <span class="vm-quote">&ldquo;</span>
-        <p class="vm-visi-text">Menjadi guru yang kompeten, inspiratif, dan peduli terhadap murid serta mampu menciptakan pembelajaran yang bermakna, menyenangkan, dan sesuai dengan kebutuhan serta perkembangan murid.</p>
+        <p class="vm-visi-text">Saya ingin menjadi guru informatika yang menerapkan pembelajaran berpusat pada murid sesuai kebutuhannya agar mereka mampu menggunakan teknologi untuk memecahkan masalah dalam kehidupan sehari-hari.</p>
       </div>
     </div>
 
@@ -1557,11 +1570,11 @@
         <h3 class="vm-title">Hal yang dilakukan untuk mencapai visi</h3>
         <div class="vm-row">
           <span class="vm-num">01</span>
-          <p>Meningkatkan kompetensi dan pengetahuan sebagai calon guru.</p>
+          <p>Mengenali kebutuhan murid.</p>
         </div>
         <div class="vm-row">
           <span class="vm-num">02</span>
-          <p>Memahami karakteristik, kebutuhan, dan potensi setiap murid.</p>
+          <p>Merancang pembelajaran yang berpusat pada murid.</p>
         </div>
         <div class="vm-row">
           <span class="vm-num">03</span>
@@ -1569,7 +1582,7 @@
         </div>
         <div class="vm-row">
           <span class="vm-num">04</span>
-          <p>Menanamkan nilai karakter, tanggung jawab, dan sikap saling menghargai.</p>
+          <p>Membimbing penggunaan teknologi secara bijak.</p>
         </div>
         <div class="vm-row vm-row-last">
           <span class="vm-num">05</span>
@@ -1582,7 +1595,7 @@
   <!-- SEMESTER 1 -->
   <section id="semester1" class="page">
     <div class="section-heading reveal">
-      <h2>Mata Kuliah Semester 1</h2>
+      <h2>Refleksi Pengalaman Belajar Semester 1</h2>
       <p>Pilih salah satu mata kuliah untuk melihat refleksi, dokumentasi, dan artefak pembelajaran.</p>
     </div>
     <div class="course-grid" id="grid-s1"></div>
@@ -1592,7 +1605,7 @@
   <!-- SEMESTER 2 -->
   <section id="semester2" class="page">
     <div class="section-heading reveal">
-      <h2>Mata Kuliah Semester 2</h2>
+      <h2>Refleksi Pengalaman Belajar Semester 2</h2>
       <p>Pilih salah satu mata kuliah untuk melihat refleksi, dokumentasi, dan artefak pembelajaran.</p>
     </div>
     <div class="course-grid" id="grid-s2"></div>
@@ -1608,7 +1621,7 @@
     <article class="refleksi-card karya-card reveal">
       <div class="refleksi-body">
         <h3>Pengembangan FlowLab sebagai Media Pembelajaran Interaktif Berbasis Web pada Materi Flowchart untuk Meningkatkan Hasil Belajar Murid Kelas X KA A di SMK Negeri 2 Depok</h3>
-        <p>FlowLab merupakan media pembelajaran interaktif berbasis web yang dikembangkan untuk membantu meningkatkan hasil belajar murid kelas X Kimia Analisis A di SMK Negeri 2 Depok pada materi flowchart dalam mata pelajaran Informatika. Media ini dapat diakses melalui peramban tanpa perlu instalasi dan digunakan dalam pembelajaran di kelas maupun secara mandiri. FlowLab dilengkapi dengan fitur materi pembelajaran, contoh flowchart, kuis latihan, editor untuk membuat flowchart, fitur ekspor dan impor berkas, serta simulasi untuk menampilkan jalannya flowchart langkah demi langkah. Selain itu, FlowLab menyajikan contoh penerapan flowchart yang relevan dengan bidang Kimia Analisis, seperti penerimaan sampel, pengujian kadar Fe, titrasi, dan spektrofotometri. Melalui fitur-fitur tersebut, murid dapat memahami simbol dan struktur flowchart, berlatih menyusun alur secara logis dan sistematis, serta mempelajari konsep percabangan dan perulangan secara lebih interaktif.</p>
+        <p>FlowLab merupakan media pembelajaran interaktif berbasis web yang dikembangkan untuk mendukung peningkatan hasil belajar murid kelas X Kimia Analisis A SMK Negeri 2 Depok pada materi flowchart dalam mata pelajaran Informatika. FlowLab menyediakan materi, contoh, kuis, editor flowchart, fitur impor dan ekspor berkas, serta simulasi alur langkah demi langkah. Media ini juga dilengkapi contoh penerapan flowchart dalam bidang Kimia Analisis, seperti pengujian kadar Fe, titrasi, dan spektrofotometri, sehingga murid dapat memahami dan menyusun flowchart secara logis dan interaktif.</p>
         <div class="karya-link">
           <a class="btn btn-primary" href="https://miftahuljanaah.github.io/FlowLab/" target="_blank" rel="noopener">Buka FlowLab</a>
           <span class="karya-url">miftahuljanaah.github.io/FlowLab</span>
@@ -1625,24 +1638,40 @@
         <figure class="doc-item"><a href="https://drive.google.com/file/d/15qqeTYjimlvoRYUTbjXggEvTcO8jU5uc/view?usp=drive_link" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=15qqeTYjimlvoRYUTbjXggEvTcO8jU5uc&sz=w1200" alt="Foto murid mempresentasikan hasil pekerjaan" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Foto murid mempresentasikan hasil pekerjaan</figcaption></figure>
       </div>
     </div>
+
+    <div class="karya-box karya-wide reveal">
+      <h4>Refleksi Tindak Lanjut</h4>
+      <ol class="karya-list">
+        <li>Menelaah 4 murid yang belum tuntas dan menganalisis hasil postes per indikator untuk perbaikan media dan pembelajaran.</li>
+        <li>Memperbaiki media berdasarkan angket respons dan masukan ahli.</li>
+        <li>Mengembangkan umpan balik otomatis yang mendeteksi kesalahan logika pada flowchart buatan murid.</li>
+      </ol>
+    </div>
   </section>
 
-  <!-- REFLEKSI PENGALAMAN BELAJAR -->
+  <!-- REFLEKSI MENGIKUTI PPG -->
   <section id="refleksi" class="page">
     <div class="section-heading reveal">
       <h2>Refleksi Mengikuti PPG</h2>
-      <p>Pandangan dan rencana saya sebagai calon guru setelah menjalani rangkaian pembelajaran di Program PPG.</p>
+      <p>Pandangan saya tentang makna menjadi guru setelah menjalani Program PPG Calon Guru.</p>
     </div>
     <div class="refleksi-wrap">
-      <article class="refleksi-card reveal">
-        <div class="refleksi-num">1</div>
+      <article class="refleksi-card karya-card refleksi-single reveal">
         <div class="refleksi-body">
-          <h3>Setelah mengikuti rangkaian refleksi pengalaman belajar, menurut Anda, bagaimana seharusnya pendidikan di Indonesia?</h3>
-          <p>Menurut saya, pendidikan di Indonesia seharusnya menjadi pendidikan yang berpusat pada murid, inklusif, dan mampu mengembangkan potensi setiap individu secara optimal. Pendidikan tidak hanya berfokus pada pencapaian nilai akademik, tetapi juga membentuk karakter, keterampilan berpikir kritis, kreativitas, kemandirian, serta sikap gotong royong. Guru perlu menerapkan pembelajaran yang bermakna, menyenangkan, dan sesuai dengan kebutuhan serta karakteristik murid. Selain itu, pendidikan harus memberikan kesempatan yang adil bagi seluruh anak Indonesia tanpa membedakan latar belakang sosial, ekonomi, budaya, maupun kemampuan. Melalui pendidikan yang berkualitas, diharapkan murid mampu menghadapi tantangan perkembangan zaman tanpa kehilangan nilai-nilai Pancasila dan budaya bangsa.</p>
+          <p class="rtl-lead">Selama mengikuti PPG Calon Guru, saya belajar bahwa mengajar bukan sekadar menyampaikan materi, tetapi juga memahami kebutuhan dan memfasilitasi proses belajar murid. Melalui pengalaman PPL di SMK Negeri 2 Depok, saya semakin memahami pentingnya pembelajaran yang berpusat pada murid, sesuai dengan kebutuhan mereka, serta mendorong keaktifan dan kolaborasi dalam lingkungan belajar yang aman dan menyenangkan. Saya juga meyakini bahwa dalam pembelajaran informatika, teknologi bukan sekadar materi yang dipelajari, melainkan alat yang dapat membantu murid berpikir kritis dan memecahkan masalah dalam kehidupan sehari-hari.</p>
         </div>
       </article>
-      <article class="refleksi-card reveal">
-        <div class="refleksi-num">2</div>
+
+      <h3 class="refleksi-group-title reveal">Refleksi Pengalaman Belajar selama Mengikuti Program PPG</h3>
+
+      <article class="refleksi-card karya-card refleksi-q reveal">
+        <div class="refleksi-body">
+          <h3>Setelah mengikuti rangkaian refleksi pengalaman belajar, menurut Anda, bagaimana seharusnya pendidikan di Indonesia?</h3>
+          <p>Menurut saya, pendidikan di Indonesia seharusnya berpihak pada murid, yaitu menempatkan murid sebagai pusat pembelajaran dengan menghargai perbedaan karakteristik, minat, dan kebutuhan belajar mereka. Pendidikan tidak hanya berfokus pada capaian nilai dan penguasaan materi, tetapi juga membentuk karakter, nalar kritis, kreativitas, kemandirian, dan kemampuan berkolaborasi. Pembelajaran perlu dirancang secara kontekstual dan bermakna agar relevan dengan kehidupan nyata serta perkembangan teknologi. Pendidikan juga harus inklusif dan merata, sehingga setiap murid memperoleh kesempatan yang adil untuk berkembang. Semua ini hanya dapat terwujud melalui kolaborasi guru, sekolah, orang tua, dan masyarakat dalam menciptakan lingkungan belajar yang aman, nyaman, dan menyenangkan.</p>
+        </div>
+      </article>
+
+      <article class="refleksi-card karya-card refleksi-q reveal">
         <div class="refleksi-body">
           <h3>Apa saja yang dapat Anda lakukan untuk menjadi guru profesional?</h3>
           <p>Untuk menjadi guru profesional, saya akan terus meningkatkan kompetensi pedagogik, kepribadian, sosial, dan profesional melalui kegiatan pelatihan, seminar, membaca referensi pendidikan, serta melakukan refleksi terhadap praktik pembelajaran. Saya akan berusaha memahami karakteristik dan kebutuhan murid agar dapat merancang pembelajaran yang kreatif, inovatif, dan berpusat pada murid. Saya juga akan memanfaatkan teknologi sebagai media pembelajaran, melaksanakan asesmen secara objektif, serta memberikan umpan balik yang membangun. Selain itu, saya akan menjaga etika profesi, menjadi teladan dalam sikap dan perilaku, membangun komunikasi yang baik dengan murid, orang tua, dan rekan sejawat, serta memiliki komitmen untuk terus belajar dan memperbaiki diri demi meningkatkan kualitas pendidikan.</p>
@@ -1650,27 +1679,30 @@
       </article>
 
       <h3 class="refleksi-group-title reveal">Rencana Tindak Lanjut</h3>
-      <p class="rtl-lead reveal" style="margin:-6px 0 0;color:var(--ink);font-weight:500;">Apa saja tiga hal penting yang akan Anda lakukan ketika memulai karier sebagai guru?</p>
-      <article class="refleksi-card reveal">
-        <div class="refleksi-num">1</div>
-        <div class="refleksi-body">
+      <p class="reveal" style="font-weight:600;margin:-4px 0 0;">Apa saja tiga hal penting yang akan Anda lakukan ketika memulai karier sebagai guru?</p>
+
+      <article class="refleksi-card karya-card refleksi-q rtl-item reveal">
+        <div class="rtl-head">
+          <div class="refleksi-num">1</div>
           <h3>Merancang dan melaksanakan pembelajaran yang berpihak pada murid.</h3>
-          <p>Saya akan mengenali karakteristik, kemampuan awal, minat, dan kebutuhan murid sebagai dasar dalam menyusun perencanaan pembelajaran. Saya akan menerapkan pembelajaran yang aktif, kreatif, menyenangkan, dan berdiferensiasi agar setiap murid memperoleh kesempatan untuk berkembang sesuai potensinya.</p>
         </div>
+        <p>Saya akan mengenali karakteristik, kemampuan awal, minat, dan kebutuhan murid sebagai dasar dalam menyusun perencanaan pembelajaran. Saya akan menerapkan pembelajaran yang aktif, kreatif, menyenangkan, dan berdiferensiasi agar setiap murid memperoleh kesempatan untuk berkembang sesuai potensinya.</p>
       </article>
-      <article class="refleksi-card reveal">
-        <div class="refleksi-num">2</div>
-        <div class="refleksi-body">
+
+      <article class="refleksi-card karya-card refleksi-q rtl-item reveal">
+        <div class="rtl-head">
+          <div class="refleksi-num">2</div>
           <h3>Mengembangkan kompetensi dan meningkatkan profesionalisme secara berkelanjutan.</h3>
-          <p>Saya akan terus belajar melalui pelatihan, komunitas belajar, diskusi dengan rekan sejawat, serta memanfaatkan teknologi dalam pembelajaran. Saya juga akan melakukan refleksi dan evaluasi secara rutin untuk mengetahui kekurangan dan menentukan langkah perbaikan dalam proses pembelajaran.</p>
         </div>
+        <p>Saya akan terus belajar melalui pelatihan, komunitas belajar, diskusi dengan rekan sejawat, serta memanfaatkan teknologi dalam pembelajaran. Saya juga akan melakukan refleksi dan evaluasi secara rutin untuk mengetahui kekurangan dan menentukan langkah perbaikan dalam proses pembelajaran.</p>
       </article>
-      <article class="refleksi-card reveal">
-        <div class="refleksi-num">3</div>
-        <div class="refleksi-body">
+
+      <article class="refleksi-card karya-card refleksi-q rtl-item reveal">
+        <div class="rtl-head">
+          <div class="refleksi-num">3</div>
           <h3>Menjadi teladan dan membangun lingkungan belajar yang positif.</h3>
-          <p>Saya akan menunjukkan sikap disiplin, jujur, bertanggung jawab, adil, dan peduli kepada murid. Saya akan menciptakan suasana kelas yang aman, nyaman, inklusif, serta menghargai perbedaan. Selain itu, saya akan menjalin kerja sama yang baik dengan orang tua, rekan guru, dan seluruh warga sekolah untuk mendukung perkembangan karakter dan kompetensi murid.</p>
         </div>
+        <p>Saya akan menunjukkan sikap disiplin, jujur, bertanggung jawab, adil, dan peduli kepada murid. Saya akan menciptakan suasana kelas yang aman, nyaman, inklusif, serta menghargai perbedaan. Selain itu, saya akan menjalin kerja sama yang baik dengan orang tua, rekan guru, dan seluruh warga sekolah untuk mendukung perkembangan karakter dan kompetensi murid.</p>
       </article>
     </div>
   </section>
@@ -1697,7 +1729,8 @@
         <button data-target="identifikasi">Identifikasi Diri</button>
         <button data-target="semester1">Semester 1</button>
         <button data-target="semester2">Semester 2</button>
-        <button data-target="refleksi">Refleksi</button>
+        <button data-target="karya">Karya Inovasi</button>
+        <button data-target="refleksi">Refleksi PPG</button>
       </div>
     </div>
     <div class="footer-col">
@@ -2048,6 +2081,31 @@
     history.scrollRestoration = 'manual';
     window.addEventListener('load', () => applyRoute('auto'));
   }
+
+  // ---------- warna tombol keyboard hero: acak, tetangga tidak sama ----------
+  (function(){
+    const palette = ['#FF7A00','#B9A8FF','#38D385','#3FA0FF','#FFD530','#FF8FB1'];
+    const keys = [...document.querySelectorAll('.kb .key')];
+    const n = keys.length; // 0-4 baris 1, 5-10 baris 2, 11 = Enter
+    const adj = Array.from({length:n}, () => new Set());
+    const link = (x,y) => { if(x<n && y<n){ adj[x].add(y); adj[y].add(x); } };
+    for(let i=0;i<4;i++) link(i,i+1);
+    for(let i=5;i<10;i++) link(i,i+1);
+    for(let i=0;i<5;i++){ link(i,5+i); link(i,6+i); }
+    link(4,11); link(10,11);
+    const shuffle = a => { for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+    const col = new Array(n).fill(null);
+    (function solve(i){
+      if(i===n) return true;
+      for(const c of shuffle(palette.slice())){
+        if([...adj[i]].some(j => col[j]===c)) continue;
+        col[i]=c;
+        if(solve(i+1)) return true;
+      }
+      col[i]=null; return false;
+    })(0);
+    keys.forEach((k,i) => { if(col[i]) k.style.setProperty('--c', col[i]); });
+  })();
 
   // ---------- tombol keyboard di hero ----------
   const keyEls = [...document.querySelectorAll('.key')];
